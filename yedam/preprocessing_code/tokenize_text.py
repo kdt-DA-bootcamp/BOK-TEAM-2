@@ -46,6 +46,6 @@ def tokenize_text(text):
         print(f"토큰화 중 오류 발생: {text}\n오류 메시지: {e}")
         return []
 
-df['tagged'] = df['contents'].apply(tokenize_text)
+df['tagged'] = df['article'].apply(tokenize_text)
 
 df.to_csv('tokenized_MPB_results.csv', index=False)
