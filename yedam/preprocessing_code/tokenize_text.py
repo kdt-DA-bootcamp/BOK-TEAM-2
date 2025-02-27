@@ -3,7 +3,7 @@ import re
 from ekonlpy.tag import Mecab
 
 mecab = Mecab()
-df = pd.read_csv('MPB.csv')
+df = pd.read_csv('filtered_bond_results.csv')
 
 def tokenize_text(text):
     
@@ -15,8 +15,6 @@ def tokenize_text(text):
         tokens = mecab.pos(text)
         tokens = mecab.replace_synonyms(tokens)
         tokens = mecab.lemmatize(tokens)
-
-        allowed_tags = {'NNP', 'NNG', 'VV', 'VA'}
         
         filtered_tokens = []
         for token, pos in tokens:
@@ -35,7 +33,7 @@ def tokenize_text(text):
                 continue
             
             # 품사 필터
-            if pos not in allowed_tags:
+            if pos[0] in ['I', 'J', 'E', 'S']:
                 continue
 
             filtered_tokens.append((clean_token, pos))
@@ -46,6 +44,6 @@ def tokenize_text(text):
         print(f"토큰화 중 오류 발생: {text}\n오류 메시지: {e}")
         return []
 
-df['tagged'] = df['article'].apply(tokenize_text)
+df['tagged'] = df['contents'].apply(tokenize_text)
 
-df.to_csv('tokenized_MPB_results.csv', index=False)
+df.to_csv('tokenized_bond_results.csv', index=False)
