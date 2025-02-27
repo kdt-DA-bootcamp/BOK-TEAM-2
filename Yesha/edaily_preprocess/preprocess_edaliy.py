@@ -38,6 +38,7 @@ for idx, content in enumerate(edaily['contents']):
     temp = []
     for tag in fin_lem :
         if tag[1][0] not in ['I', 'J','E','S' ] :
+        # if tag[1] in ['NNP','NNG', 'VV', 'VA' ]
             # 조사, 특수문자 (숫자 포함), 어미
             # 명사, 동사, 형용사만 남김
             temp.append(tag)   
@@ -45,11 +46,15 @@ for idx, content in enumerate(edaily['contents']):
             continue
     contents_tagged.append(temp)
 print(contents_tagged[:3])
+
 end = datetime.now()
+"""
 print(f"소요 시간: {end - start}")
 edaily['tagged'] = contents_tagged
 
 edaily.to_csv(r"C:/Users/iq750/bootcamp_git/대용량 파일 관리/edaily_results.csv", encoding = 'utf-8', index = False)
+
+"""
 # 2. Norlmalization
 #   - removing stop words, stemming and lemmatization
 # stopwords: NNP, NNG, VV, VA (실질적 의미가 있는 명사/동사/형용사만)
@@ -57,3 +62,20 @@ edaily.to_csv(r"C:/Users/iq750/bootcamp_git/대용량 파일 관리/edaily_resul
 
 # 3. Morphological analysis of the Korean Language -> eKoNLKPy
 #   - spacing, terminology and foreign words
+"""
+from kiwipiepy import Kiwi
+kiwi = Kiwi()
+# 문장 단위 토큰화
+edaily = edaily.drop(['Unnamed: 0'], axis = 1)
+content = cleaned_(edaily['contents'].iloc[7000])
+sentences = [s.text for s in kiwi.split_into_sents(content)]
+print(sentences)
+from konlpy.tag import Kkma
+kkma = Kkma()
+sentences = kkma.sentences(content)
+print(sentences)
+# kiwi가 조금 더 나은 듯
+sentences = []
+for text in edaily['contents'] :
+    text.split('.')
+"""
