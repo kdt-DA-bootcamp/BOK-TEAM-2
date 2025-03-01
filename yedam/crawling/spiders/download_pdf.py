@@ -3,7 +3,7 @@ import csv
 import requests
 from urllib.parse import urlparse
 
-def download_pdfs_from_csv(csv_file, folder='debenture_pdf_folder'):
+def download_pdfs_from_csv(csv_file, folder='pdf_folder'):
     if not os.path.exists(folder):
         os.makedirs(folder)
     

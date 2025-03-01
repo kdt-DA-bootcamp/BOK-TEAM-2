@@ -7,7 +7,7 @@ class DebentureSpider(scrapy.Spider):
     allowed_domains = ["finance.naver.com", "stock.pstatic.net"]
 
     start_urls = [
-        'https://finance.naver.com/research/debenture_list.naver?keyword=&brokerCode=&searchType=writeDate&writeFromDate=2014-01-01&writeToDate=2024-11-30&x=32&y=22&page=1'
+        'https://finance.naver.com/research/economy_list.naver?keyword=&brokerCode=&searchType=writeDate&writeFromDate=2014-01-01&writeToDate=2024-11-30&x=29&y=33&page=1'
     ]
 
     def parse(self, response):

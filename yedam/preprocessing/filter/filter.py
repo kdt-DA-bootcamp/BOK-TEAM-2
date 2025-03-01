@@ -20,7 +20,7 @@ def process_csv_file(input_file: str, output_file: str):
     df.to_csv(output_file, index=False)
 
 if __name__ == "__main__":
-    input_csv = "filtered_bond_results.csv"
-    output_csv = "preprocessed_bond_results.csv"
+    input_csv = "economy_results.csv"
+    output_csv = "preprocessed_economy_results.csv"
 
     process_csv_file(input_csv, output_csv)

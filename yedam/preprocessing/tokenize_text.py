@@ -3,7 +3,7 @@ import re
 from ekonlpy.tag import Mecab
 
 mecab = Mecab()
-df = pd.read_csv('filtered_bond_results.csv')
+df = pd.read_csv('preprocessed_economy_results.csv')
 
 with open('stopwords.txt', 'r', encoding='utf-8') as f:
     file_stopwords = [line.strip() for line in f if line.strip()]
@@ -62,4 +62,4 @@ def tokenize_text(text):
 
 df['tagged'] = df['contents'].apply(tokenize_text)
 
-df.to_csv('tokenized_bond_results.csv', index=False)
+df.to_csv('tokenized_economy_results.csv', index=False)
