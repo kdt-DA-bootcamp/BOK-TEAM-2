@@ -39,6 +39,8 @@ for d in data_files:
     # 텍스트에서는 특수문자 □ 제거
     data = data.replace('□','')
     data = data.replace('\n', '')
+    # 공백 및 숫자 정리
+    data = re.sub(r"\d+", "", data).strip()
 
     # 나머지는 Kiwi 이용해서 문장 토큰화시킨 담에 df 저장하기 
     sents = [s.text for s in kiwi.split_into_sents(data)]
@@ -52,5 +54,5 @@ df_sentences = df_sentences.sort_values('date', ignore_index=True)
 df_sentences = df_sentences.drop_duplicates(subset=['date'], ignore_index=True)
 
 print(df_sentences.head(10), df_sentences.tail(10))
-
+# csv 저장
 df_sentences.to_csv(r'C:/Users/iq750/bootcamp_git/BOK-TEAM-2/Yesha/Evaluation/conferences_sentences.csv', encoding='utf-8-sig')
