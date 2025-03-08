@@ -1,0 +1,35 @@
+모델별 AUC (금리 상승, 금리 하락, 금리 동결)
+
+Ngram2Vector - 심프슨 방법으로 구한 면적: 0.04547156689669929
+Ngram2Vector - 심프슨 방법으로 구한 면적: 0.24882706849919964
+Ngram2Vector - 심프슨 방법으로 구한 면적: 0.003197079613095238
+Average AUC: 0.0992
+
+FastText - 심프슨 방법으로 구한 면적: 0.0
+FastText - 심프슨 방법으로 구한 면적: 0.0
+FastText - 심프슨 방법으로 구한 면적: 0.0
+Average AUC: 0.0
+
+NaiveB1 - 심프슨 방법으로 구한 면적: 0.22002888781896968
+NaiveB1 - 심프슨 방법으로 구한 면적: 0.32875200088314843
+NaiveB1 - 심프슨 방법으로 구한 면적: 0.0
+Average AUC: 0.1829
+
+NaiveB2 - 심프슨 방법으로 구한 면적: 0.0
+NaiveB2 - 심프슨 방법으로 구한 면적: 0.3333333333333333
+NaiveB2 - 심프슨 방법으로 구한 면적: 0.3333333333333333
+Average AUC: 0.2222
+
+KOSAC - 심프슨 방법으로 구한 면적: 0.11886802546407747
+KOSAC - 심프슨 방법으로 구한 면적: 0.2651653143456422
+KOSAC - 심프슨 방법으로 구한 면적: 0.0
+Average AUC: 0.128
+
+---------------------------------------
+참고 링크
+
+https://wikidocs.net/235866#google_vignette
+
+https://continuous-development.tistory.com/entry/MLDL-python-%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%98%EB%8A%94-ROC%EA%B3%A1%EC%84%A0%EA%B3%BC-AUC
+
+다중분류 문제의 ROC curve 구현: https://moons08.github.io/datascience/classification_score_roc_auc/
